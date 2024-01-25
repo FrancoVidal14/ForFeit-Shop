@@ -33,8 +33,8 @@ html {
 
 body {
   margin: 0;
-  min-height: 100dvh;
   padding: 0;
+  min-height: 100dvh;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -49,6 +49,13 @@ h6 {
 
 p {
   text-wrap: pretty;
+  margin: 5px 2px;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 5px 2px;
 }
 
 a {
@@ -104,6 +111,8 @@ header {
   width: 100%;
   background-color: var(--blanco);
   position: fixed;
+  align-items: center;
+  justify-content: center;
   ul {
     list-style: none;
     display: flex;
@@ -111,7 +120,7 @@ header {
   }
 
   li {
-    margin-right: 10px;
+    margin: 0 10px;
   }
 }
 
@@ -127,6 +136,7 @@ header {
 nav {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .iconoNav {
@@ -134,15 +144,18 @@ nav {
   height: 2.5em;
 }
 #caracteristicas {
-  justify-content: center;
-  height: 15vh;
+  display: flex;
+  justify-content: flex-start;
+  height: 14vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   img {
     width: 4em;
-    height: 4em;
   }
 }
+
 .car-box {
-  width: 33%;
+  width: 25%;
+  height: 100%;
 }
 
 .column {
