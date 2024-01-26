@@ -52,7 +52,7 @@ p {
   margin: 5px 2px;
 }
 
-h3 {
+h4 {
   font-weight: 600;
   font-size: 18px;
   margin: 5px 2px;
@@ -157,6 +157,34 @@ nav {
 .car-box {
   width: 25%;
   height: 100%;
+}
+
+#bento {
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-auto-rows: 35rem;
+  gap: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+article {
+  position: relative;
+  border-radius: 0.75rem;
+  backdrop-filter: blur(8px);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px; /* O el valor específico que necesites */
+}
+
+#bentoItem1 {
+  grid-column: span 20 / span 20;
 }
 
 .column {
