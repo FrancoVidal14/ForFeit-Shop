@@ -125,7 +125,7 @@ canvas#canvas {
 
 header {
   z-index: 1;
-  height: 13vh;
+  height: 16vh;
   width: 100%;
   background-color: var(--blanco);
   position: fixed;
@@ -150,6 +150,7 @@ header li {
 .first-sec-head {
   border-bottom: 2px solid var(--gris);
   align-items: center;
+  justify-content: space-around;
 }
 
 nav {
@@ -288,22 +289,45 @@ span {
     font-size: 20px;
   }
 
+  h2 {
+    max-width: 300px;
+    position: relative;
+    text-align: start;
+    left: 0%;
+    top: 250px;
+    font-size: 3.3rem;
+  }
+
   header {
-    min-height: 105px;
+    min-height: 10px;
+    height: 50px;
     width: 100%;
     background-color: var(--blanco);
     position: fixed;
     align-items: center;
-    justify-content: space-evenly;
+  }
+
+  .first-sec-head {
+    height: 50px;
+    justify-content: space-between;
+    margin: 0px 20px;
+  }
+
+  .second-sec-head {
+    display: none;
   }
 
   header p {
     display: none;
   }
 
+  nav {
+    display: none;
+  }
+
   .iconoNav {
-    width: 1.5em;
-    height: 1.5em;
+    width: 2.7em;
+    height: 2.7em;
   }
 
   #home {
