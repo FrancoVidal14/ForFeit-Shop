@@ -48,27 +48,21 @@ document.addEventListener("DOMContentLoaded", function() {
   //Funciones caracteristicas//
   ////////////////////////////
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const slider = document.querySelector('.slider-container');
-    const totalSlides = document.querySelectorAll('.slider-content').length;
-    let currentSlide = 0;
-
-    function showSlide(index) {
-      currentSlide = index;
-      slider.style.transform = `translateX(-${index * 100}%)`;
+  document.addEventListener('DOMContentLoaded', function() {
+    const isMobile = window.innerWidth <= 767;
+    if (isMobile) {
+      const sliderContainer = document.querySelector('.slider-container');
+      // Intervalo para desplazar automáticamente el slider cada 5 segundos
+      setInterval(() => {
+        sliderContainer.scrollLeft += sliderContainer.clientWidth;
+        if (sliderContainer.scrollLeft === sliderContainer.scrollWidth - sliderContainer.clientWidth) {
+          // Si estamos en el último slide, regresamos al primero
+          sliderContainer.scrollLeft = 0;
+        }
+      }, 5000);
     }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      showSlide(currentSlide);
-    }
-
-    // Controlador de desplazamiento automático cada 5 segundos
-    setInterval(nextSlide, 5000);
-
-    // Inicia el slider al cargar la página
-    showSlide(currentSlide);
   });
+
 
   /////////////////////////////
   //Funciones del Bento Grid//
