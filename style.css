@@ -204,13 +204,15 @@ nav {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#caracteristicas img {
-  width: 4em;
+.car-box {
+  width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
 }
 
-.car-box {
-  width: 25%;
-  height: 100%;
+.car-box img {
+  width: 4em;
+  height: auto;
 }
 
 #Bento {
@@ -487,7 +489,24 @@ nav {
     height: 100vh;
     min-height: 300px;
   }
-  #caracteristicas {
+
+  .slider-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .slider-content {
+    display: flex;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    width: 100%;
+  }
+
+  /* Ocultar la barra de desplazamiento en Chrome y Firefox */
+  .slider-container::-webkit-scrollbar {
     display: none;
   }
 
