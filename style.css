@@ -6,6 +6,7 @@
 
 :root {
   --negro: #010101;
+  --carbon: #2c2c2c;
   --dorado: #dac085;
   --gris: #efe4c8;
   --blanco: #f6f9e8;
@@ -76,12 +77,13 @@ h4 {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+  outline: none;
 }
 
-a:hover {
-  text-decoration: none;
+a:visited {
+  color: inherit;
 }
 
 .container {
@@ -172,10 +174,7 @@ nav {
 }
 
 .nav-link {
-  transition: 0.7 ease;
-}
-
-.nav-link:hover {
+  transition: 0.7s ease; /* Ajusté el valor de la propiedad transition */
 }
 
 .hamburger {
@@ -221,12 +220,11 @@ nav {
 }
 
 .wrapper {
-  max-width: 1800px; /* Especifica el width cuando no quieras heredar el width del padre */
+  max-width: 1800px;
   display: grid;
   gap: 1rem;
   grid-template-columns: 280px 280px 280px;
   grid-template-rows: 220px 220px;
-  /* grid-auto-rows: minmax auto; */
   grid-gap: 10px;
 }
 
@@ -239,25 +237,80 @@ nav {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.wrapper .content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  color: var(--blanco);
+}
+
+.wrapper span,
+.wrapper h3,
+.wrapper .comprarbtn {
+  display: block;
+  margin: 20px;
+  text-transform: uppercase;
+  text-align: left;
 }
 
 .wrapper span {
-  margin: 20px;
-  text-transform: uppercase;
   font-weight: 600;
-  font-size: 12px;
-  position: absolute;
-  bottom: 40%;
+  font-size: 16px;
+  margin: 0px 20px;
+}
+
+.wrapper h3 {
+  font-weight: 700;
+  font-size: 24px;
+  margin: 5px 20px;
+}
+
+.wrapper .comprarbtn a {
+  text-decoration: none;
+  color: var(--dorado);
+  border: 1px solid var(--dorado);
+  padding: 10px 15px;
+  border-radius: 1px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.grid1,
+.grid2,
+.grid3,
+.grid4 {
+  position: relative;
+}
+
+.grid2 .comprarbtn a {
+  border-color: var(--blanco);
   color: var(--blanco);
 }
-.wrapper h3 {
-  margin: 20px;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 18px;
-  position: absolute;
-  bottom: 30%;
+.grid4 .comprarbtn a {
+  border-color: var(--blanco);
   color: var(--blanco);
+}
+
+.wrapper .comprarbtn a:hover {
+  background-color: var(--dorado);
+  color: var(--blanco);
+}
+
+.grid2 .comprarbtn a:hover {
+  border-color: var(--dorado);
+  color: var(--negro);
+}
+
+.grid4 .comprarbtn a:hover {
+  border-color: var(--dorado);
+  background-color: var(--blanco);
+  color: var(--negro);
 }
 
 .grid1 {
@@ -270,19 +323,15 @@ nav {
   grid-row: 1/2;
 }
 
-.grid2 h3,
-span {
-  color: var(--negro) !important;
-}
-
 .grid3 {
   grid-column: 3/4;
   grid-row: 1/3;
   width: 255px;
 }
 
-.grid3 span {
-  margin-bottom: 0px !important;
+.wrapper .grid3 .content {
+  height: 100%;
+  top: 2em;
 }
 
 .grid4 {
@@ -290,9 +339,30 @@ span {
   grid-row: 2/3;
 }
 
+/* Estilos específicos para cambiar el color en algunos grids */
+.grid2 span,
+.grid2 h3,
+.grid2 a,
+.grid4 span,
 .grid4 h3,
-span {
-  color: var(--negro) !important;
+.grid4 a {
+  color: var(--negro);
+}
+
+.zoom-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.zoom-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.zoom-container:hover .zoom-img {
+  transform: scale(1.1);
 }
 
 .column {
@@ -441,6 +511,29 @@ span {
     height: 100%;
   }
 
+  .wrapper span,
+  .wrapper h3,
+  .wrapper .comprarbtn {
+    display: block;
+    margin: 20px;
+    text-transform: uppercase;
+    text-align: left;
+  }
+
+  .wrapper span {
+    font-weight: 500;
+    font-size: 12px;
+    margin: 1px 10px;
+    color: var(--negro);
+  }
+
+  .wrapper h3 {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 1px 10px;
+    color: var(--negro);
+  }
+
   .grid1 {
     grid-column: 1/2;
     grid-row: 1/2;
@@ -451,6 +544,11 @@ span {
     grid-row: 2/3;
   }
 
+  .grid2 span,
+  .grid2 h3 {
+    color: var(--blanco);
+  }
+
   .grid3 {
     grid-column: 2/2;
     grid-row: 1/4;
@@ -458,12 +556,25 @@ span {
   }
 
   .grid3 span {
-    margin-bottom: 15px !important;
+    margin-bottom: 5px !important;
     color: var(--blanco) !important;
+  }
+
+  .grid3 h3 {
+    color: var(--blanco) !important;
+  }
+
+  .wrapper .grid3 .content {
+    top: 11em;
   }
 
   .grid4 {
     grid-column: 1/2;
     grid-row: 3/4;
+  }
+
+  .grid4 span,
+  .grid4 h3 {
+    color: var(--dorado);
   }
 }
