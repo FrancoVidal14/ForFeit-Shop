@@ -48,22 +48,62 @@ document.addEventListener("DOMContentLoaded", function() {
   //Funciones caracteristicas//
   ////////////////////////////
 
-  document.addEventListener('DOMContentLoaded', function() {
-    const isMobile = window.innerWidth <= 767;
-    if (isMobile) {
-      const sliderContainer = document.querySelector('.slider-container');
-      // Intervalo para desplazar automáticamente el slider cada 5 segundos
-      setInterval(() => {
-        sliderContainer.scrollLeft += sliderContainer.clientWidth;
-        if (sliderContainer.scrollLeft === sliderContainer.scrollWidth - sliderContainer.clientWidth) {
-          // Si estamos en el último slide, regresamos al primero
-          sliderContainer.scrollLeft = 0;
-        }
-      }, 5000);
+  function ocultarBotonoesEnPantallaGrande() {
+    let botones = document.querySelectorAll('.scroll-btn');
+    if (botones) {
+      botones.forEach(boton => {
+        boton.style.display = (window.innerWidth > 767) ? 'none' : '';
+      });
     }
+  }
+  
+  ocultarBotonoesEnPantallaGrande();
+  window.addEventListener('resize', ocultarBotonoesEnPantallaGrande);
+
+  ocultarBotonoesEnPantallaGrande();
+  window.addEventListener('resize', ocultarBotonoesEnPantallaGrande);
+  
+  const slider = document.querySelector('.slider-container');
+  const totalSlides = document.querySelectorAll('.slider-content').length;
+  let currentSlide = 0;
+  
+  function showSlide(index) {
+    currentSlide = index;
+    slider.scrollTo({
+      left: index * slider.clientWidth,
+      behavior: 'smooth',
+    });
+  }
+  
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+  
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }
+  
+  // Controlador de desplazamiento automático cada 5 segundos
+  setInterval(() => {
+    nextSlide();
+    if (currentSlide === 0) {
+      setTimeout(() => {
+        showSlide(currentSlide);
+      }, 1000);
+    }
+  }, 5000);
+  
+  // Manejadores de eventos para los botones
+  document.getElementById('prevBtn').addEventListener('click', prevSlide);
+  document.getElementById('nextBtn').addEventListener('click', nextSlide);
+  
+  // Inicia el slider al cargar la página
+  document.addEventListener('DOMContentLoaded', () => {
+    showSlide(currentSlide);
   });
-
-
+  
   /////////////////////////////
   //Funciones del Bento Grid//
   ///////////////////////////
