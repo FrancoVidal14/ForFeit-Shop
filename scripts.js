@@ -2,10 +2,11 @@ document.addEventListener("DOMContentLoaded", function() {
   //////////////////////////////////
   //Funciones del Header y Navbar//
   ////////////////////////////////
+
   function ocultarElementosEnPantallaPequena() {
-    let elementoTelefono = document.getElementById('telefono');
-    if (elementoTelefono) {
-      elementoTelefono.style.display = (window.innerWidth <= 767) ? 'none' : '';
+    let elementoLupa = document.getElementById('Lupa');
+    if (elementoLupa) {
+      elementoLupa.style.display = (window.innerWidth <= 767) ? 'none' : '';
   }
 }
 
@@ -128,5 +129,8 @@ document.addEventListener("DOMContentLoaded", function() {
       // Añade un listener para volver a comprobar cuando se redimensiona la ventana
       window.addEventListener('resize', ajustarBotonesEnPantallaPequena);
     
-  
+  /////////////////////////////
+  //Funciones del Footer//////
+  ///////////////////////////
+
 });

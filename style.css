@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
 @font-face {
   font-family: fanlste;
-  src: url(/Fuentes/fanlste.otf) format("opentype");
+  src: url(Fuentes/fanlste.otf) format("opentype");
 }
 
 :root {
@@ -62,7 +62,7 @@ h1 {
   font-family: "fanlste", sans-serif;
   font-size: 32px;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 2.5px;
 }
 
@@ -129,7 +129,7 @@ header {
   z-index: 2;
   height: 6.2em;
   width: 100%;
-  background-color: var(--blanco);
+  background-color: #ffffff;
   position: fixed;
   align-items: center;
   justify-content: center;
@@ -377,9 +377,39 @@ nav {
 }
 
 footer {
-  height: 15vh;
-  background-color: var(--negro);
+  background-color: var(--carbon);
   color: var(--blanco);
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+footer p{
+  font-size: 14px;
+  font-weight: 300;
+}
+footer a{
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.tituloFooter{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.social-media,
+.contact-info,
+.customer-service,
+.copyright {
+  margin-bottom: 20px;
+}
+
+.social-media a img {
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 10px;
 }
 
 .column {
@@ -425,7 +455,7 @@ footer {
     min-height: 10px;
     height: 50px;
     width: 100%;
-    background-color: var(--blanco);
+    background-color: #fff;
     position: fixed;
     align-items: center;
   }
@@ -434,7 +464,6 @@ footer {
     height: 50px;
     justify-content: space-between;
     margin: 0px 20px;
-    flex-direction: row-reverse;
   }
 
   header p {
@@ -510,16 +539,17 @@ footer {
   }
 
   .slider-container {
+    width: auto; /* Asegúrate de que el contenedor ocupe el 100% del ancho */
     position: relative;
     display: flex;
     overflow-x: scroll;
-    scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -ms-overflow-style: none;
     min-width: 100%;
-    scroll-snap-align: start;
+    scroll-snap-type: x mandatory;
     justify-content: flex-start;
   }
+  
 
   .slider-content {
     display: inline-block;
